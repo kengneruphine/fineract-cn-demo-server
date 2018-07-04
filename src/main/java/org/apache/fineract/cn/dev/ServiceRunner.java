@@ -306,7 +306,7 @@ public class ServiceRunner {
     logger.info("Service '{}' started and {} with Eureka.", microservice.name(), registered ? "registered" : "not registered");
     microservice.setApiFactory(this.apiFactory);
 
-    TimeUnit.SECONDS.sleep(20); //Give it some extra time before the next service...
+    TimeUnit.SECONDS.sleep(5); //Give it some extra time before the next service...
   }
 
   private void migrateServices() {
@@ -323,7 +323,7 @@ public class ServiceRunner {
           } else {
             ServiceRunner.provisionerService.api().assignApplications(tenant.getIdentifier(), Collections.singletonList(assignedApplication));
             try {
-              Thread.sleep(5000L);
+              Thread.sleep(500L);
             } catch (InterruptedException e) {
               //do nothing
             }
